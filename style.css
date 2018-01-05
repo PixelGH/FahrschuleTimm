@@ -1,0 +1,253 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 75px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.nav-items-container {
+    width: 1000px;
+    height: 100%;
+    margin: auto;
+}
+
+.nav-logo {
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.nav-items {
+    float: right;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: rgb(236, 175, 0);
+}
+
+.nav-item {
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    line-height: 75px;
+    margin-right: 7px;
+}
+
+.page-content {
+    position: relative;
+    width: 100%;
+    min-height: 70%;
+    padding-top: 75px;
+    background-color: rgb(247, 247, 247);
+    z-index: 1;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+    z-index: 0;
+    position: relative;
+    width: 100%;
+    height: 350px;
+    background-color: #D2891F;
+    color: white;
+}
+
+.footer-contents {
+    width: 925px;
+    height: 100%;
+    margin: auto;
+}
+
+.footer-column {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin-right: 20px;
+}
+
+.right {
+    float: right;
+}
+
+h4 {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+.footer-link {
+    color: white;
+}
+
+a {
+    color: rgb(236, 175, 0);
+    text-decoration: none;
+}
+
+.spacer {
+    height: 20px;
+}
+
+h1, h2 {
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 22px;
+}
+
+h2 {
+    font-size: 19px;
+}
+
+.text-centered {
+    width: 925px;
+    margin: auto;
+    text-align: center;
+}
+
+.page-flow {
+    width: 100%;
+    padding-top: 25px;
+}
+
+.slideshow {
+    width: 100%;
+    height: 450px;
+    background-color: blue;
+    margin-top: 25px;
+}
+
+.slideshow-small {
+    width: 925px;
+    height: 600px;
+    margin: auto;
+}
+
+.button {
+    display: block;
+    height: 40px;
+    width: 200px;
+    background: #b7f6ff; /* Old browsers */
+    background: -moz-linear-gradient(top, #b7f6ff 0%, #77c7dd 3%, #1e5799 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #b7f6ff 0%,#77c7dd 3%,#1e5799 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #b7f6ff 0%,#77c7dd 3%,#1e5799 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7f6ff', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
+    border-radius: 4px;
+    border: 1px solid #1e5799;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+.fixed-width-centered {
+    margin: auto;
+}
+
+.card {
+    width: 925px;
+    min-height: 200px;
+    margin: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: 0px 5px 9px rgba(0, 0, 0, 0.4);
+}
+
+p {
+    line-height: 23px;
+}
+
+.text-container {
+    width: 925px;
+    margin: auto;
+}
+
+.bullet-list li {
+    margin-bottom: 5px;
+}
+
+.colored-list {
+    list-style: none;
+    color: green;
+    font-weight: bold;
+}
+
+.colored-list li {
+    margin-bottom: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+}
+
+.dropdown-content a {
+    color: rgb(236, 175, 0);
+    padding: 7px 15px;
+    display: block;
+    line-height: normal;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.nav-item:hover .dropdown-content {
+    display: block;
+}
+
+.image-large {
+    display: block;
+    width: 925px;
+    height: 600px;
+    background-color: blue;
+    margin: auto;
+}
+
+.quote {
+    font-style: italic;
+}
+
+.quote::before {
+    content: "\"";
+}
+
+.quote::after {
+    content: "\"";
+}
+
+.blank-table {
+    width: 925px;
+    margin: auto;
+    background-color: white;
+    border: 0.5px solid #E1E1E1;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.hr {
+    width: 925px;
+    height: 0.5px;
+    background-color: #E1E1E1;
+}
