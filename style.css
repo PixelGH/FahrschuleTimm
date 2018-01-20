@@ -252,11 +252,11 @@ p {
     margin-top: 20px;
     position: relative;
 }
-  
+
 .slide {
     display: none;
 }
-  
+
 .prev, .next {
     cursor: pointer;
     position: absolute;
