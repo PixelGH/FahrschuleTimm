@@ -253,6 +253,10 @@ p {
     position: relative;
 }
 
+* {
+    background-color: green;
+}
+
 .slide {
     display: none;
 }
