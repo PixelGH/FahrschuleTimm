@@ -1,13 +1,26 @@
 <html>
 
 <head>
-    <title></title>
+    <title>Start</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <meta charset="utf-8">
 </head>
 
 <body>
+    <div class="editing-overlay" id="editing-overlay">
+        <div class="editing-overlay-caption" id="editing-overlay-caption"></div>
+        <div class="editing-overlay-toolbar">
+            <div class="editing-overlay-toolbar-button bold" onclick="bold()">B</div><div class="editing-overlay-toolbar-button italic" onclick="italic()">I</div><div class="editing-overlay-toolbar-button underline" onclick="underline()">U</div><div class="editing-overlay-toolbar-button" onclick="undo()">←</div><div class="editing-overlay-toolbar-button" onclick="redo()">→</div>
+        </div>
+        <textarea class="editing-overlay-text-box" id="editing-overlay-text-box"></textarea>
+        <div class="editing-overlay-buttons">
+            <div class="editing-overlay-button" onclick="apply()">Anwenden</div>
+            <div class="editing-overlay-button" onclick="save()">Speichern</div>
+        </div>
+    </div>
     <div class="nav-bar">
         <div class="nav-items-container">
             <img class="nav-logo" src="resource/logo.png">
@@ -49,8 +62,8 @@
     </div>
     <div class="page-content">
         <div class="page-flow">
-            <h1 class="text-centered" id="title">Ihre Fahrschule in Leverkusen</h1>
-            <h2 class="text-centered" id="subtitle">Fairness, Freundlichkeit und Kompetenz sind bei uns keine leeren Worte</h2>
+            <h1 class="text-centered editable" id="title">Ihre Fahrschule in Leverkusen</h1>
+            <h2 class="text-centered editable" id="subtitle">Fairness, Freundlichkeit und Kompetenz sind bei uns keine leeren Worte</h2>
             <div class="slideshow">
                 <div class="slide fade">
                     <img src="resource/slide2.jpg" style="width:100%">
@@ -63,17 +76,19 @@
                 </div>
             </div>
             <div style="margin-top:20px;padding-bottom:20px;">
-                <h2 class="text-centered" id="splash1">Besuchen Sie unseren Unterricht zur Probe – fahren Sie mit bei einer Fahrstunde.</h2>
-                <h2 class="text-centered" id="splash2">So zeigen wir Transparenz und Sie wissen woran Sie sind!</h2>
+                <h2 class="text-centered editable" id="splash1">Besuchen Sie unseren Unterricht zur Probe – fahren Sie mit bei einer Fahrstunde.</h2>
+                <h2 class="text-centered editable" id="splash2">So zeigen wir Transparenz und Sie wissen woran Sie sind!</h2>
                 <a href="kontakt.html" class="button fixed-width-centered">Termin vereinbaren</a>
                 <div class="card">
                     <img class="card-image">
                     <div class="card-text">
-                        <h2 style="margin-bottom:5px" class="bold" id="card-title1">B96 Anhänger Kurs</h2>
-                        <p id="card-text1"><i>schon ab 319,00€</i></p>
-                        <h2 class="bold" id="card-title2">Die nächste Schulung:</h2>
-                        <p style="margin-top:20px" id="card-text2">auf Anfrage</p>
-                        <a style="margin-top:20px" id="card-link1" class="bold" href="">Weitere Infos</a>
+                        <h2 style="margin-bottom:5px" class="bold editable" id="card-title1">B96 Anhänger Kurs</h2>
+                        <p id="card-text1" class="editable">
+                            <i>schon ab 319,00€</i>
+                        </p>
+                        <h2 class="bold editable" id="card-title2">Die nächste Schulung:</h2>
+                        <p class="editable" style="margin-top:20px" id="card-text2">auf Anfrage</p>
+                        <a class="editable" style="margin-top:20px" id="card-link1" class="bold" href="">Weitere Infos</a>
                     </div>
                 </div>
                 <a href="anmeldung.html" class="button fixed-width-centered">Jetzt online anmelden</a>
@@ -85,37 +100,41 @@
     </div>
     <div class="footer">
         <div class="footer-contents">
-            <div class="footer-column">
-                <h4 id="footer-col1-heading">Filiale Leverkusen Wiesdorf</h4>
-                <p id="footer-col1-text">
-                    Mo und Di
-                    <br> 16:00 bis 19:00 Uhr
-                    <br> Do
-                    <br> 16:00 bis 19:00
-                    <br>
-                    <br> Telefon: 0214-202 939 11
-                    <br> Fax: 0214-206 074 12
-                    <br> info@fahrschule-timm.de
-                </p>
-            </div>
-            <div class="footer-column">
-                <h4 id="footer-col2-heading">Filiale Lützenkirchen</h4>
-                <p id="footer-col2-text">
-                    Mi
-                    <br> 16:00 bis 18:30
-                    <br> Fr
-                    <br> 17:00 bis 18:30
-                    <br>
-                    <br> Telefon: 02171-5815660
-                    <br> Fax: 02171-5815670
-                </p>
-            </div>
-            <div class="footer-column right">
-                <div style="margin-top:20px;">
-                    <a href="jobs.html" class="footer-link">Jobs</a>
-                    <a href="impressum.html" class="footer-link">Impressum</a>
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4 class="editable" id="footer-col1-heading">Filiale Leverkusen Wiesdorf</h4>
+                    <p class="editable" id="footer-col1-text">
+                        Mo und Di
+                        <br> 16:00 bis 19:00 Uhr
+                        <br> Do
+                        <br> 16:00 bis 19:00
+                        <br>
+                        <br> Telefon: 0214-202 939 11
+                        <br> Fax: 0214-206 074 12
+                        <br> info@fahrschule-timm.de
+                    </p>
                 </div>
+                <div class="footer-column">
+                    <h4 class="editable" id="footer-col2-heading">Filiale Lützenkirchen</h4>
+                    <p class="editable" id="footer-col2-text">
+                        Mi
+                        <br> 16:00 bis 18:30
+                        <br> Fr
+                        <br> 17:00 bis 18:30
+                        <br>
+                        <br> Telefon: 02171-5815660
+                        <br> Fax: 02171-5815670
+                    </p>
+                </div>
+                <div class="footer-column right">
+                    <div style="margin-top:20px;">
+                        <a href="jobs.html" class="footer-link">Jobs</a>
+                        <a href="impressum.html" class="footer-link">Impressum</a>
+                    </div>
+                </div>
+                <a class="edit-link" onclick="beginEditing()">Bearbeiten</a>
             </div>
+
         </div>
     </div>
     <script>
@@ -131,7 +150,125 @@
             slideIndex++;
             if (slideIndex > slides.length) { slideIndex = 1 }
             slides[slideIndex - 1].style.display = "block";
-            setTimeout(slideshow, 10000); // Change image every 2 seconds
+            setTimeout(slideshow, 10000);
+        }
+
+        var editing = '';
+        var jsonExport = {};
+        var undoStack = [];
+        var redoStack = [];
+
+        function beginEditing() {
+            $('#editing-overlay').css('display', 'block');
+            $('.editable').addClass('editing');
+            $('.editing').click((event) => {
+                $('#editing-overlay-caption').html(event.target.id)
+                $('#editing-overlay-text-box').val(parseHTML($('#' + event.target.id).html()));
+                editing = event.target.id;
+            });
+        }
+
+        function endEditing() {
+            $('#editing-overlay').css('display', 'none');
+            $('.editable').removeClass('editing');
+        }
+
+
+        function parseMarkup(text) {
+            var html = text
+                .replace(/\n/, '<br>')
+                .replace(/\[b\]/g, '<b>')
+                .replace(/\[\/b\]/g, '</b>')
+                .replace(/\[i\]/g, '<i>')
+                .replace(/\[\/i\]/g, '</i>')
+                .replace(/\[u\]/g, '<u>')
+                .replace(/\[\/u\]/g, '</u>');
+            return html;
+        }
+
+        function parseHTML(html) {
+            var text = html
+                .replace(/<br>/, '\n')
+                .replace(/<b>/g, '[b]')
+                .replace(/<\/b>/g, '[/b]')
+                .replace(/<i>/g, '[i]')
+                .replace(/<\/i>/g, '[/i]')
+                .replace(/<u>/g, '[u]')
+                .replace(/<\/u>/g, '[/u]');
+            return text;
+        }
+
+        function apply() {
+            const elem = $('#' + editing);
+            const value = elem.html();
+            var markup = $('#editing-overlay-text-box').val();
+            elem.html(parseMarkup(markup));
+            jsonExport[window.location.pathname] = jsonExport[window.location.pathname] || {};
+            jsonExport[window.location.pathname][editing] = markup;
+            undoStack.push({
+                element: elem,
+                id: editing,
+                newValue: parseMarkup(markup),
+                oldValue: value
+            });
+        }
+
+        function save() {
+            var data = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(jsonExport));
+            var downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", data);
+            downloadAnchorNode.setAttribute("download", "content.json");
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        }
+
+        function undo() {
+            const operation = undoStack.pop();
+            const elemID = operation.id;
+            operation.element.html(operation.oldValue);
+            $('#editing-overlay-text-box').val(parseHTML(operation.oldValue));
+            jsonExport[window.location.pathname] = jsonExport[window.location.pathname] || {};
+            jsonExport[window.location.pathname][elemID] = parseHTML(operation.oldValue);
+            redoStack.push({
+                element: operation.element,
+                id: elemID,
+                newValue: operation.oldValue,
+                oldValue: operation.newValue
+            });
+        }
+
+        function redo() {
+            const operation = redoStack.pop();
+            const elemID = operation.id;
+            operation.element.html(operation.oldValue);
+            $('#editing-overlay-text-box').val(parseHTML(operation.oldValue));
+            jsonExport[window.location.pathname] = jsonExport[window.location.pathname] || {};
+            jsonExport[window.location.pathname][elemID] = parseHTML(operation.oldValue);
+            undoStack.push({
+                element: operation.element,
+                id: elemID,
+                newValue: operation.oldValue,
+                oldValue: operation.newValue
+            });
+        }
+
+        function bold() {
+            const textarea = document.getElementById('editing-overlay-text-box');
+            textarea.value = textarea.value.insert('[b]', textarea.selectionStart).insert('[/b]', textarea.selectionEnd + 3);
+        }
+
+        function underline() {
+            const textarea = document.getElementById('editing-overlay-text-box');
+            textarea.value = textarea.value.insert('[u]', textarea.selectionStart).insert('[/u]', textarea.selectionEnd + 3);
+        }
+
+        function italic() {
+            const textarea = document.getElementById('editing-overlay-text-box');
+            textarea.value = textarea.value.insert('[i]', textarea.selectionStart).insert('[/i]', textarea.selectionEnd + 3);
+        }
+
+        String.prototype.insert = function (string, index) {
+            return [this.slice(0, index), string, this.slice(index)].join('');
         }
     </script>
 </body>
